@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'package:flutter_login/setting/setting.dart';
+import 'package:flutter_login/common/common.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key key, this.title}) : super(key: key);
@@ -15,23 +14,11 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:AppBar(
-        title: Text('Home'),
-        actions: <Widget>[
-        IconButton(
-          icon: Icon(Icons.settings),
-          onPressed: (){
-            Navigator.push(
-                context,
-                MaterialPageRoute(builder: (_) => Setting()),
-            );
-          },
-        )
-      ],
-      ),
+      appBar:MyAppBar(title: Text('Home')),
       body: Center(
-        child: Text('Hone')
-      )
+        child: Text('Home')
+      ),
+      bottomNavigationBar: MyBottomNavyBar(selectedIndex: 0,)
     );
   }
 }

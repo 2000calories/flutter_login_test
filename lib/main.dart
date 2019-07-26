@@ -9,6 +9,7 @@ import 'package:flutter_login/splash/splash.dart';
 import 'package:flutter_login/login/login.dart';
 import 'package:flutter_login/home/home.dart';
 import 'package:flutter_login/common/common.dart';
+import 'screens/second_page.dart';
 
 class SimpleBlocDelegate extends BlocDelegate {
   @override
@@ -52,6 +53,11 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      routes: {
+        '/login' : (context) =>  LoginPage(userRepository: userRepository),
+        '/home' : (context) =>  HomePage(),
+        '/secondPage' : (context) =>  SecondPage(),
+      },
       home: BlocBuilder<AuthenticationEvent, AuthenticationState>(
         bloc: BlocProvider.of<AuthenticationBloc>(context),
         builder: (BuildContext context, AuthenticationState state) {
